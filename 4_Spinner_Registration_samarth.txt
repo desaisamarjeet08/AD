@@ -1,90 +1,6 @@
-package com.example.assignment4;
+LAB4: Spinner_Reg
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
-
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        EditText username =findViewById(R.id.editTextText);
-        EditText uemailid =findViewById(R.id.editTextText2);
-        RadioGroup radioGroup = findViewById(R.id.radio1);
-        Button reg=findViewById(R.id.button);
-        Intent intent= new Intent(MainActivity.this, Activity2.class);
-        Spinner sp=findViewById(R.id.spinner);
-
-
-
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                int sel_id=group.getCheckedRadioButtonId();
-                RadioButton radioButton=findViewById(sel_id);
-
-                intent.putExtra("sub",radioButton.getText());
-            }
-        });
-        reg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = username.getText().toString();
-                String emailid = uemailid.getText().toString();
-                String str1 = sp.getSelectedItem().toString();
-                intent.putExtra("name1", name);
-                intent.putExtra("emailid1", emailid);
-                intent.putExtra("sub3", str1);
-                startActivity(intent);
-            }
-        });
-
-    }
-}
-
-
-
-activity.java
-
-package com.example.assignment4;
-
-import androidx.appcompat.app.AppCompatActivity;
-import android.app.Activity;
-
-import android.os.Bundle;
-import android.widget.TextView;
-
-public class Activity2 extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_2);
-        TextView textView=findViewById(R.id.textView2);
-        TextView textviewemail=findViewById(R.id.textView5);
-        TextView textViewg =findViewById(R.id.textView3);
-        TextView textViews =findViewById(R.id.textView4);
-        Bundle extras=getIntent().getExtras();
-
-        textView.setText(extras.getString("name1"));
-        textviewemail.setText(extras.getString("emailid1"));
-        textViewg.setText(extras.getString("sub"));
-        textViews.setText(extras.getString("sub3"));
-    }
-}
-
-
-
-activity_main.xml
+1.activity.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -183,8 +99,68 @@ activity_main.xml
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+///////////////////////////////////////////////////////////////////////////////////
+2.MainActivity.java
 
-activity2.xml
+package com.example.ad_expt_4_reg;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        EditText username =findViewById(R.id.editTextText);
+        EditText uemailid =findViewById(R.id.editTextText2);
+        RadioGroup radioGroup = findViewById(R.id.radio1);
+        Button reg=findViewById(R.id.button);
+        Intent intent= new Intent(MainActivity.this, Activity2.class);
+        Spinner sp=findViewById(R.id.spinner);
+
+
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                int sel_id=group.getCheckedRadioButtonId();
+                RadioButton radioButton=findViewById(sel_id);
+
+                intent.putExtra("sub",radioButton.getText());
+            }
+        });
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = username.getText().toString();
+                String emailid = uemailid.getText().toString();
+                String str1 = sp.getSelectedItem().toString();
+                intent.putExtra("name1", name);
+                intent.putExtra("emailid1", emailid);
+                intent.putExtra("sub3", str1);
+                startActivity(intent);
+            }
+        });
+
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+<-------!create new activity by adding new>activity>galary>empty_view_activity------->
+
+////////////////////////////////////////////////////////////////////////////////////////////
+3.activity2.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -243,46 +219,37 @@ activity2.xml
         app:layout_constraintVertical_bias="0.267" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+/////////////////////////////////////////////////////////////////////////////
+4.Activity2.java
 
-manifest.xml
+package com.example.ad_expt_4_reg;
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
-    
-        <application
-            android:allowBackup="true"
-            android:dataExtractionRules="@xml/data_extraction_rules"
-            android:fullBackupContent="@xml/backup_rules"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/Theme.Assignment4"
-            tools:targetApi="31">
-            <activity
-                android:name=".MainActivity"
-                android:exported="true">
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN" />
-                    <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
-            </activity>
-    
-            <!-- Add the declaration for Activity2 here -->
-            <activity
-                android:name=".Activity2"
-                android:exported="true">
-            </activity>
-        </application>
-    
-    
-    </manifest>
+import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+import android.widget.TextView;
 
+public class Activity2 extends AppCompatActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_2);
+        TextView textView=findViewById(R.id.textView2);
+        TextView textviewemail=findViewById(R.id.textView5);
+        TextView textViewg =findViewById(R.id.textView3);
+        TextView textViews =findViewById(R.id.textView4);
+        Bundle extras=getIntent().getExtras();
 
-values/string.xml
+        textView.setText(extras.getString("name1"));
+        textviewemail.setText(extras.getString("emailid1"));
+        textViewg.setText(extras.getString("sub"));
+        textViews.setText(extras.getString("sub3"));
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+5.res->values->strings.xml
 
 <resources><string name="app_name">Kanchan_Lab4</string>
     <string-array name="sub_name">
@@ -298,3 +265,41 @@ values/string.xml
         </item>
     </string-array>
 </resources>
+
+///////////////////////////////////////////////////////////////////////////////////
+6.Manifest.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Ad_expt_4_reg"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Add the declaration for Activity2 here -->
+        <activity
+            android:name=".Activity2"
+            android:exported="true">
+        </activity>
+    </application>
+
+
+</manifest>
+
+

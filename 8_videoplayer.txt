@@ -1,4 +1,6 @@
-xml
+LAB8_videoplayer
+
+1.xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,8 +25,10 @@ xml
 
 </LinearLayout>
 
-java
+/////////////////////////////////////////////////////////////////////////////////////
+2.java
 
+package com.example.ad_expt_8_video;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;

@@ -1,4 +1,6 @@
-XML code:
+9_external
+
+1.XML code:
 
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -57,7 +59,7 @@ XML code:
 </LinearLayout>
 
 //////////////////////////////////////////////////////
-java 
+2.java 
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -245,8 +247,10 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 }
+
 /////////////////////
- AndroidManifest.xml
+3. AndroidManifest.xml
+
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 

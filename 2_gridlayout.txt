@@ -1,4 +1,6 @@
-activity_main.xml Code :
+LAB2:GridLayout
+
+1.activity_main.xml Code :
 
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
