@@ -202,6 +202,17 @@ gradel.properties -
 
 android.nonFinalResIds=false
 
+///////////////////////////////////////
+File locations
+
+res->layout -
+layout_dialog.xml
+
+res->menu -
+context1_menu.xml
+example_menu.xml
+popup_menu.xml
+
 
 
 
