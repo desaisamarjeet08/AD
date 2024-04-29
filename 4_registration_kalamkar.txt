@@ -214,3 +214,11 @@ public class DisplayDataActivity extends AppCompatActivity {
         }
     }
 }
+
+
+<--------------------- manifest.xml------------------------------->
+ <!-- Add the declaration for Activity2 here -->
+        <activity
+            android:name=".Activity2"
+            android:exported="true">
+        </activity>
