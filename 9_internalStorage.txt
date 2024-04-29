@@ -127,3 +127,9 @@ public class MainActivity extends AppCompatActivity {
  }
  }
 }
+
+
+/////////////////////////////////////////////
+file location
+
+deviceManager->data->data->com.ex.file_name->files->ex.txt

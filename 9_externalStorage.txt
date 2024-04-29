@@ -253,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
 
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
 
 Device explorer - storage- emulated - 0- android- data- com.project name - files- myfiledir- myfile
 
